@@ -6,6 +6,10 @@ I wanted to see a photo first and read the post underneath it, while still follo
 
 **Start with the X home feed.** It is the only page I consider usable for everyday testing, and it still has bugs. I am sharing this personal project so that someone interested in another page, language or interaction can build on what already works.
 
+![Original X and the same example post with Layrly enabled](docs/home-feed-comparison.webp)
+
+*Illustrative comparison using fictional accounts and posts.*
+
 ## Try it in Chrome
 
 1. Download and extract this repository using **Code → Download ZIP**, or clone it with Git.

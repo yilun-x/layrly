@@ -85,6 +85,13 @@ const root = path.resolve(__dirname, '..');
 
     const rail = x.locator('#layrly-x-rail');
     await x.setViewportSize({width:1470, height:775});
+    const brandLink = rail.locator('[data-item="brand"]');
+    assert.equal(new URL(await brandLink.getAttribute('href')).pathname, '/home');
+    const brandPath = brandLink.locator('svg path');
+    assert.deepEqual(await brandPath.evaluate(path =>
+      [[3, 2], [21, 2], [12, 3]].map(([x, y]) => path.isPointInFill(new DOMPoint(x, y)))
+    ), [true, true, false]);
+    check('The X mark appears on the home link in the transformed navigation rail');
     const positions = () => rail.locator('[data-item]').evaluateAll(items => items.map(item => {
       const glyph = item.querySelector('img') || item.querySelector('svg');
       const {x,y,width,height} = glyph.getBoundingClientRect();

@@ -1,7 +1,7 @@
 // Layrly navigation glyphs, drawn on a local 24-unit grid.
 (() => {
   const paths = {
-    brand: 'm3 8 9-5 9 5-9 5z M3 12l9 5 9-5 M3 16l9 5 9-5',
+    brand: 'M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.64 7.584H.47l8.6-9.835L0 1.154h7.594l5.243 6.932 6.064-6.933zm-1.29 19.49h2.039L6.487 3.24H4.3l13.31 17.403z',
     home: 'm2.5 11 9.5-8 9.5 8 M5 10v11h5v-6h4v6h5V10',
     homeCurrent: 'M1 11 12 2l11 9-2 2-2-1v10h-5v-7h-4v7H5V12l-2 1z',
     video: 'M6 3h12q3 0 3 3v12q0 3-3 3H6q-3 0-3-3V6q0-3 3-3z M10 8l6 4-6 4z',
@@ -26,7 +26,7 @@
       if (!paths[key]) continue;
       const path = document.createElementNS(ns, 'path');
       path.setAttribute('d', paths[key]);
-      const solid = key === 'homeCurrent' || key === 'videoCurrent';
+      const solid = key === 'brand' || key === 'homeCurrent' || key === 'videoCurrent';
       path.setAttribute('fill', solid ? 'currentColor' : 'none');
       if (solid) path.setAttribute('fill-rule','evenodd');
       else {

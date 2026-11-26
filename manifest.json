@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Layrly",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "description": "Browse your X home timeline as a photo-first feed. An experimental, local-first layout switcher for X and Instagram.",
   "minimum_chrome_version": "120",
   "permissions": [

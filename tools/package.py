@@ -10,6 +10,6 @@ with ZipFile(target, 'w', ZIP_DEFLATED) as archive:
     for folder in ('assets', 'core', 'platforms', 'popup', 'options', 'shared'):
         for file in sorted((root / folder).rglob('*')):
             if file.is_file(): archive.write(file, file.relative_to(root))
-    for name in ('manifest.json', 'README.md', 'LICENSE', 'PRIVACY.html', 'CONTRIBUTING.md'):
+    for name in ('manifest.json', 'README.md', 'LICENSE', 'PRIVACY.html', 'CONTRIBUTING.md', 'docs/home-feed-comparison.webp'):
         archive.write(root / name, name)
 print(target)
