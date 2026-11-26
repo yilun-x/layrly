@@ -1,0 +1,26 @@
+html[data-layrly="instagram"] [data-layrly-main] { box-sizing: border-box; color: var(--layrly-text) !important; background: var(--layrly-bg) !important; min-width: 0 !important; max-width: min(var(--layrly-width), 100%) !important; }
+html[data-layrly="instagram"] [data-layrly-feed] { display: flex !important; flex-direction: column !important; align-items: center; width: min(100%, 660px) !important; max-width: min(var(--layrly-width), 660px) !important; margin-inline: auto !important; }
+html[data-layrly="instagram"] [data-layrly-card] { flex-shrink: 0 !important; width: min(100%, 660px) !important; max-width: 660px !important; margin: 0 auto var(--layrly-gap) !important; padding: 16px !important; border: 1px solid var(--layrly-border) !important; border-radius: 12px !important; }
+html[data-layrly="instagram"] [data-layrly-card] header { margin-bottom: 8px !important; }
+html[data-layrly="instagram"] [data-layrly-card] [data-layrly-media] { max-height: 440px !important; object-fit: contain !important; }
+html[data-layrly="instagram"] [data-layrly-card] img[data-layrly-media] { aspect-ratio: var(--layrly-ratio, auto); }
+html[data-layrly="instagram"] [data-layrly-card] :is(h1, h2, ul, p) { line-height: 1.65 !important; }
+html[data-layrly="instagram"] [data-layrly-reading-body] { display: flex !important; flex-direction: column !important; }
+html[data-layrly="instagram"] [data-layrly-reading-body] > * { order: 3; min-width: 0; }
+html[data-layrly="instagram"] [data-layrly-reading-body] > [data-layrly-author] { order: 0; }
+html[data-layrly="instagram"] [data-layrly-reading-body] > [data-layrly-caption] { order: 1; font-size: 15px; margin-block: 8px 14px; }
+html[data-layrly="instagram"] [data-layrly-reading-body] > [data-layrly-embedded-media] { order: 2; border-radius: 10px; overflow: hidden; }
+html[data-layrly="instagram"] [data-layrly-list] { display: flex !important; flex-direction: column !important; gap: var(--layrly-gap) !important; width: min(100%, 660px) !important; max-width: 660px !important; margin-inline: auto !important; height: auto !important; }
+html[data-layrly="instagram"] [data-layrly-list-item] { width: 100% !important; flex: 0 0 auto !important; height: auto !important; min-height: 0 !important; }
+html[data-layrly="instagram"] a[data-layrly-thumbnail] { display: block !important; width: 100% !important; max-width: 660px !important; margin: 0 auto !important; border: 1px solid var(--layrly-border); border-radius: 12px; background: var(--layrly-surface); overflow: hidden; aspect-ratio: var(--layrly-ratio, 16 / 9) !important; }
+html[data-layrly="instagram"] a[data-layrly-thumbnail] img { object-fit: contain !important; }
+html[data-layrly="instagram"] [data-layrly-profile] { box-sizing: border-box; max-width: 660px !important; margin: 24px auto !important; padding: 24px; background: var(--layrly-surface); border: 1px solid var(--layrly-border); border-radius: 14px; }
+html[data-layrly="instagram"][data-layrly-route="detail"] [data-layrly-main] { padding-block: 24px; }
+html[data-layrly="instagram"][data-layrly-route="detail"] [data-layrly-card] { display: flex !important; flex-direction: column !important; }
+/* Instagram uses these CSS variables for native controls and themed surfaces. */
+html[data-layrly="instagram"][data-layrly-theme="light"] { --ig-primary-text: 32,35,43; --ig-secondary-text: 114,119,133; --ig-primary-background: 255,255,255; --ig-secondary-background: 246,247,249; --ig-separator: 230,232,238; }
+html[data-layrly="instagram"][data-layrly-theme="dark"] { --ig-primary-text: 236,238,245; --ig-secondary-text: 160,165,180; --ig-primary-background: 26,29,36; --ig-secondary-background: 17,19,24; --ig-separator: 48,52,62; }
+@media (max-width: 760px) {
+  html[data-layrly="instagram"] [data-layrly-card] { padding: 12px !important; border-radius: 0 !important; border-inline: 0 !important; }
+  html[data-layrly="instagram"] [data-layrly-profile] { margin-block: 12px !important; padding: 16px; }
+}

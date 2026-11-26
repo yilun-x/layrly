@@ -1,0 +1,67 @@
+{
+  "manifest_version": 3,
+  "name": "Layrly",
+  "version": "1.3.0",
+  "description": "Browse your X home timeline as a photo-first feed. An experimental, local-first layout switcher for X and Instagram.",
+  "minimum_chrome_version": "120",
+  "permissions": [
+    "storage",
+    "activeTab"
+  ],
+  "action": {
+    "default_title": "Layrly \u00b7 Switch layout",
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "assets/icons/icon16.png",
+      "32": "assets/icons/icon32.png",
+      "48": "assets/icons/icon48.png",
+      "128": "assets/icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "assets/icons/icon16.png",
+    "32": "assets/icons/icon32.png",
+    "48": "assets/icons/icon48.png",
+    "128": "assets/icons/icon128.png"
+  },
+  "options_page": "options/options.html",
+  "content_scripts": [
+    {
+      "matches": [
+        "https://x.com/*",
+        "https://www.x.com/*",
+        "https://twitter.com/*",
+        "https://www.twitter.com/*",
+        "https://instagram.com/*",
+        "https://www.instagram.com/*"
+      ],
+      "css": [
+        "core/base.css",
+        "platforms/x/styles.css",
+        "platforms/x/feed.css",
+        "platforms/x/rail.css",
+        "platforms/x/notifications.css",
+        "platforms/instagram/styles.css"
+      ],
+      "js": [
+        "core/storage-manager.js",
+        "core/site-detector.js",
+        "core/dom-observer.js",
+        "platforms/x/detector.js",
+        "platforms/x/rail-icons.js",
+        "platforms/x/notification-backdrop.js",
+        "platforms/x/notifications.js",
+        "platforms/x/navigation.js",
+        "platforms/x/feed.js",
+        "platforms/x/layout-instagram.js",
+        "platforms/instagram/detector.js",
+        "platforms/instagram/layout-x.js",
+        "core/layout-manager.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'none'"
+  }
+}

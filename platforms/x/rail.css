@@ -1,0 +1,85 @@
+html[data-layrly="x"] #layrly-x-rail {
+  position: fixed;
+  z-index: 10;
+  box-sizing: border-box;
+  color: var(--layrly-text);
+  background: var(--layrly-surface);
+
+  & :is(a, button) {
+    position: relative;
+    box-sizing: border-box;
+    display: grid;
+    place-items: center;
+    padding: 0;
+    margin: 0;
+    color: inherit;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  & :is(svg, img) {
+    display: block;
+    width: 24px;
+    height: 24px;
+    transition: transform 150ms ease;
+  }
+  & img { border-radius: 50%; object-fit: cover; }
+  & [data-item="profile"]:has(img) svg { display: none; }
+  & [data-item="profile"][aria-current="page"] img { outline: 2px solid currentColor; outline-offset: 1px; }
+  & path[data-state="current"] { display: none; }
+  & :is([aria-current="page"], [aria-expanded="true"]) path[data-state="idle"] { display: none; }
+  & :is([aria-current="page"], [aria-expanded="true"]) path[data-state="current"] { display: inline; }
+  & :focus-visible { outline: 2px solid currentColor; outline-offset: -3px; border-radius: 8px; }
+}
+
+@media (min-width: 700px) {
+  html[data-layrly="x"] #layrly-x-rail {
+    inset: 0 auto 0 0;
+    width: 72px;
+    padding: 24px 12px;
+    display: grid;
+    grid-template-rows: 48px minmax(0, 1fr) auto;
+
+    & [data-item="brand"] { grid-row: 1; align-self: start; }
+    & .layrly-rail-primary, & .layrly-rail-footer {
+      display: flex;
+      flex-direction: column;
+    }
+    & .layrly-rail-primary {
+      grid-row: 2;
+      justify-content: safe center;
+      overflow-y: auto;
+      scrollbar-width: none;
+    }
+    & .layrly-rail-footer { grid-row: 3; }
+    & :is(a, button) { flex: none; width: 48px; height: 56px; }
+    & :is(a, button)::before {
+      content: "";
+      position: absolute;
+      inset: 4px 0;
+      border-radius: 8px;
+    }
+    & :is(a, button):hover::before { background: color-mix(in srgb, currentColor 6%, transparent); }
+    & :is(a, button):hover :is(svg, img) { transform: scale(1.05); }
+  }
+}
+
+@media (max-width: 699px) {
+  html[data-layrly="x"] #layrly-x-rail {
+    inset: auto 0 0;
+    height: 52px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border-top: 1px solid var(--layrly-border);
+
+    & .layrly-rail-primary, & .layrly-rail-footer { display: contents; }
+    & :is(a, button) { min-width: 0; width: 36px; height: 44px; }
+    & :is([data-item="brand"], [data-item="products"]) { display: none; }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html[data-layrly="x"] #layrly-x-rail :is(svg, img) { transition: none; }
+}

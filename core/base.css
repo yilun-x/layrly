@@ -1,0 +1,32 @@
+/* All rules are inert until the user enables a supported page. */
+:root[data-layrly] {
+  --layrly-bg: #f6f7f9;
+  --layrly-surface: #fff;
+  --layrly-text: #20232b;
+  --layrly-muted: #727785;
+  --layrly-border: #e6e8ee;
+  --layrly-width: 1120px;
+  --layrly-gap: 20px;
+  --layrly-columns: 3;
+  color-scheme: light;
+}
+:root[data-layrly][data-layrly-theme="dark"] {
+  --layrly-bg: #111318;
+  --layrly-surface: #1a1d24;
+  --layrly-text: #eceef5;
+  --layrly-muted: #a0a5b4;
+  --layrly-border: #30343e;
+  color-scheme: dark;
+}
+html[data-layrly] body { background-color: var(--layrly-bg) !important; color: var(--layrly-text) !important; }
+html[data-layrly] [data-layrly-card] { box-sizing: border-box; background-color: var(--layrly-surface) !important; color: var(--layrly-text) !important; }
+html[data-layrly] [data-layrly-card] :is(p, span, time, h1, h2, h3) { color: inherit; }
+html[data-layrly] [data-layrly-card] :is(a, button, [role="button"]):focus-visible { outline: 2px solid #7663e8; outline-offset: 3px; }
+/* Aspect settings affect photos only. Native video controls and carousels keep their geometry. */
+html[data-layrly][data-layrly-ratio="square"] { --layrly-ratio: 1; }
+html[data-layrly][data-layrly-ratio="portrait"] { --layrly-ratio: 4 / 5; }
+html[data-layrly][data-layrly-ratio="landscape"] { --layrly-ratio: 16 / 9; }
+html[data-layrly][data-layrly-sidebar="hidden"] [data-layrly-recommendations] { display: none !important; }
+@media (prefers-reduced-motion: reduce) {
+  html[data-layrly] [data-layrly-card] { scroll-behavior: auto !important; }
+}
